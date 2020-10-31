@@ -13,21 +13,21 @@ public class ContactServiceTest {
             Assert.assertEquals(3, contactList.size());
 
         }
-//        @Test
-//        public void readDataInGivenRange() throws SQLException {
-//            ContactService contactService = new ContactService();
-//            LocalDate start=LocalDate.of(2018,4,4);
-//            List<Contact> contactList = contactService.readContactsBetweenDateRange(start,LocalDate.now());
-//            Assert.assertEquals(3, contactList.size());
-//
-//        }
-//        @Test
-//        public void readDataInGivenCity() throws SQLException {
-//            ContactService contactService = new ContactService();
-//            List<Contact> contactList = contactService.readContactsByCity("Kolkata");
-//            Assert.assertEquals(2, contactList.size());
-//
-//        }
+        @Test
+        public void readDataInGivenRange() throws SQLException {
+            ContactService contactService = new ContactService();
+            LocalDate start=LocalDate.of(2018,4,4);
+            List<Contact> contactList = contactService.readContactsBetweenDateRange(start,LocalDate.now());
+            Assert.assertEquals(3, contactList.size());
+
+        }
+        @Test
+        public void readDataInGivenCity() throws SQLException {
+            ContactService contactService = new ContactService();
+            List<Contact> contactList = contactService.readContactsByCity("Kolkata");
+            Assert.assertEquals(2, contactList.size());
+
+        }
 //        @Test
 //        public void readDataInGivenState() throws SQLException {
 //            ContactService contactService = new ContactService();
