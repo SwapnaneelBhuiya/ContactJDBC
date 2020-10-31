@@ -43,13 +43,13 @@ public class ContactServiceTest {
             boolean result = contactService.checkIfDataBaseIsInSync("Orko");
             Assert.assertTrue(result);
         }
-//        @Test
-//        public void givenNewEmployeeWhenAddedShouldSyncWithDB() throws SQLException {
-//            ContactService contactService = new ContactService();
-//            contactService.readContactData();
-//            contactService.addContactToAddressBook("Sayak","Mondal","Hazra","Delhi","NCR", "700056","986754534","abc@yahoo.com",LocalDate.now());
-//            boolean result = contactService.checkIfDataBaseIsInSync("Sayak");
-//            Assert.assertTrue(result);
-//
-//        }
+        @Test
+        public void givenNewEmployeeWhenAddedShouldSyncWithDB() throws SQLException {
+            ContactService contactService = new ContactService();
+            contactService.readContactData();
+            contactService.addContactToAddressBook("Sayak","Mondal","Hazra","Delhi","NCR", "700056","986754534","abc@yahoo.com",LocalDate.now());
+            boolean result = contactService.checkIfDataBaseIsInSync("Sayak");
+            Assert.assertTrue(result);
+
+        }
     }
