@@ -35,14 +35,14 @@ public class ContactServiceTest {
             Assert.assertEquals(1, contactList.size());
 
         }
-//        @Test
-//        public void updateDateMatchesWithDB() throws SQLException {
-//            ContactService contactService = new ContactService();
-//            List<Contact> employeePayrollDataList = contactService.readContactData();
-//            contactService.updateContactsAddress("Orko", "Kalighat");
-//            boolean result = contactService.checkIfDataBaseIsInSync("Orko");
-//            Assert.assertTrue(result);
-//        }
+        @Test
+        public void updateDateMatchesWithDB() throws SQLException {
+            ContactService contactService = new ContactService();
+            List<Contact> employeePayrollDataList = contactService.readContactData();
+            contactService.updateContactsAddress("Orko", "Kalighat");
+            boolean result = contactService.checkIfDataBaseIsInSync("Orko");
+            Assert.assertTrue(result);
+        }
 //        @Test
 //        public void givenNewEmployeeWhenAddedShouldSyncWithDB() throws SQLException {
 //            ContactService contactService = new ContactService();
