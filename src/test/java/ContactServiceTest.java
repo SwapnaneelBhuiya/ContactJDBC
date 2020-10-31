@@ -28,13 +28,13 @@ public class ContactServiceTest {
             Assert.assertEquals(2, contactList.size());
 
         }
-//        @Test
-//        public void readDataInGivenState() throws SQLException {
-//            ContactService contactService = new ContactService();
-//            List<Contact> contactList = contactService.readContactsByState("Maharastra");
-//            Assert.assertEquals(1, contactList.size());
-//
-//        }
+        @Test
+        public void readDataInGivenState() throws SQLException {
+            ContactService contactService = new ContactService();
+            List<Contact> contactList = contactService.readContactsByState("Maharastra");
+            Assert.assertEquals(1, contactList.size());
+
+        }
 //        @Test
 //        public void updateDateMatchesWithDB() throws SQLException {
 //            ContactService contactService = new ContactService();
