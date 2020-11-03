@@ -63,4 +63,19 @@ public class ContactService {
         return employeePayrollDataList.get(0).equals(getContactData(name));
 
     }
+    public void addMultipleEmployee(List<Contact> contactList) {
+        contactList.forEach(contact -> {
+
+            try {
+                this.addContactToAddressBook(contact.firstName,contact.lastName,contact.address,contact.city,contact.state,contact.zip,contact.number,contact.email,contact.start);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        });
+
+    }
+    public int countEntries(){
+        return this.contactDataList.size();
+    }
 }
