@@ -117,4 +117,27 @@ public class ContactServiceTest {
         long entries = addressBookService.countEntries();
         Assert.assertEquals(3, entries);
     }
+    @Test
+    public void givenMultipleContacts_Should_Return_201(){
+        ContactService addressBookService;
+        Contact[] arrayOfContacts = getContactList();
+        addressBookService = new ContactService(Arrays.asList(arrayOfContacts));
+        Contact c= new Contact(0,"Saunak","Mondal","Hazra","Delhi","NCR", "700056","986754534","abc@yahoo.com",LocalDate.now());
+        Contact c2= new Contact(0,"Krish","Mondal","Hazra","Delhi","NCR", "700056","986754534","abc@yahoo.com",LocalDate.now());
+        Contact c4= new Contact(0,"Rohit","Mondal","Hazra","Delhi","NCR", "700056","986754534","abc@yahoo.com",LocalDate.now());
+        List<Contact> c3= new ArrayList<>();
+        c3.add(c);
+        c3.add(c2);
+        c3.add(c4);
+        for(Contact c5:c3) {
+            Response response = addContactDataToJsonServer(c5);
+            int statusCode = response.getStatusCode();
+            Assert.assertEquals(201, statusCode);
+            Contact contact = new Gson().fromJson(response.asString(), Contact.class);
+            addressBookService.addEmployeeDataForREST(contact);
+        }
+        long entries = addressBookService.countEntries();
+        Assert.assertEquals(6, entries);
+
     }
+}
