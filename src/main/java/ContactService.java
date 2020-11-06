@@ -88,4 +88,9 @@ public class ContactService {
     public void addEmployeeDataForREST(Contact contact) {
         this.contactDataList.add(contact);
     }
+
+    public void updateContactsAddressUsingRest(String name, String address) {
+        Contact contact = this.getContactData(name);
+        if (contact != null) contact.address = address;
+    }
 }

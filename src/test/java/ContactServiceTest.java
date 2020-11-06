@@ -140,4 +140,19 @@ public class ContactServiceTest {
         Assert.assertEquals(6, entries);
 
     }
+    @Test
+    public void givenNameShouldUpdateAddress() {
+        Contact[] contacts = getContactList();
+        ContactService employeePayrollService = new ContactService(Arrays.asList(contacts));
+        employeePayrollService.updateContactsAddressUsingRest("Orko", "Kalighat");
+        Contact contact = employeePayrollService.getContactData("Orko");
+        System.out.println(contact.address);
+        String empJSon = new Gson().toJson(contacts);
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        request.body(empJSon);
+        Response response = request.put("/contacts/" + contact.id);
+        int status = response.getStatusCode();
+        Assert.assertEquals(200, status);
+    }
 }
