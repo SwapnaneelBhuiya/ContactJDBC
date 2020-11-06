@@ -11,6 +11,12 @@ public class ContactService {
         contactDBService= ContactDBService.getInstance();
         this.contactDataList=new ArrayList<>();
     }
+
+    public <T> ContactService(List<Contact> contactList) {
+        super();
+        this.contactDataList=new ArrayList<>(contactList);
+    }
+
     public void WelcomeMessage(){
         System.out.println("Welcome to Adv Address Book JDBC problem");
     }
@@ -77,5 +83,9 @@ public class ContactService {
     }
     public int countEntries(){
         return this.contactDataList.size();
+    }
+
+    public void addEmployeeDataForREST(Contact contact) {
+        this.contactDataList.add(contact);
     }
 }
