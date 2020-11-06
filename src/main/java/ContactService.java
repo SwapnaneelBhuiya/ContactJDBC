@@ -93,4 +93,8 @@ public class ContactService {
         Contact contact = this.getContactData(name);
         if (contact != null) contact.address = address;
     }
+
+    public void removeContact(String name) {
+        this.contactDataList.remove(name);
+    }
 }

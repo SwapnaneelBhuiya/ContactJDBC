@@ -155,4 +155,19 @@ public class ContactServiceTest {
         int status = response.getStatusCode();
         Assert.assertEquals(200, status);
     }
+    @Test
+    public void givenNameShouldBeDeleted() {
+        Contact[] contacts = getContactList();
+        ContactService employeePayrollService = new ContactService(Arrays.asList(contacts));
+        Contact contact = employeePayrollService.getContactData("Krish");
+        String empJSon = new Gson().toJson(contacts);
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        request.body(empJSon);
+        Response response = request.delete("/contacts/" + contact.id);
+        int status = response.getStatusCode();
+        Assert.assertEquals(200, status);
+        employeePayrollService.removeContact("Krish");
+        Assert.assertEquals(5,employeePayrollService.countEntries());
+    }
 }
